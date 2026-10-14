@@ -1,0 +1,6 @@
+# GitHub Pages (Jekyll) settings for the public Standing Date pages.
+# Published from a separate public repo (see README.md in this folder).
+title: Standing Date
+theme: jekyll-theme-minimal
+exclude:
+  - README.md
