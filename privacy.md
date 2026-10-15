@@ -5,7 +5,7 @@ permalink: /privacy/
 
 # Standing Date Privacy Policy
 
-**Effective date:** October 14, 2026
+**Effective date:** October 15, 2026
 
 Standing Date is a small app that helps couples save date ideas, get
 suggestions, and plan dates together. It's run by an individual developer
@@ -23,12 +23,15 @@ can delete your account in the app at any time.
 partner, and your password. We store only a scrambled (hashed) version of
 your password, never the password itself.
 
-**Your home city.** You type in a city during setup. We convert it to
-approximate map coordinates so we can suggest things near you.
+**Your home city.** You type in a city during setup. We look it up in a
+list of cities built into our server (no outside service is involved) to
+get its approximate map coordinates, so we can suggest things near you.
 
 **Your current location (only if you ask).** When you ask for a suggestion
-"near me now", the app can use your phone's location for that one request,
-with your permission. We use it to pick a nearby idea and don't store it.
+"near me now", or open the Trending list, the app can use your phone's
+location for that one request, with your permission. We use it to pick a
+nearby idea or the nearest city's Trending list, and we don't store it or
+write it to our logs.
 
 **Your tastes.** Your answers to the setup quiz, and how you respond to
 suggestions (for example, which kinds of dates and price ranges you accept
@@ -40,7 +43,13 @@ we link your two accounts so you share one Date Vault.
 **Date ideas and links you add.** Ideas you add by hand, and links you share
 into the app from other apps (like Instagram, Google Maps or your browser).
 When you share a link, our server visits that public web page to pick up its
-title, description, place name and location, and saves them as a date idea.
+title, description, place name, location and the link to its main photo,
+and saves them as a date idea.
+
+**Photos on date ideas.** An idea's photo is a link to an image on the
+website it came from. We store only the link, never a copy of the image.
+To show it, your phone loads the image straight from that website, so that
+website sees an ordinary request from your phone (like any web page would).
 
 **Suggestions, plans and reviews.** The suggestions we send you, whether you
 accept them, when a date is planned, and the reviews and notes you leave
@@ -55,11 +64,19 @@ read the rest of your calendar.
 notifications (new suggestions, review reminders). You can turn
 notifications off in your phone's settings.
 
-**Google Maps saved places (only if you choose to import them).** A planned
-feature will let you import places you've saved in Google Maps by
-downloading a file from Google Takeout and uploading it to the app. If you
-do, we read only your saved places (name, address, location, and the list
-they're in) to create date ideas, and we don't keep the uploaded file.
+**Google Maps saved places (only if you choose to import them).** You can
+import places you've saved in Google Maps from a file you download from
+Google Takeout. The app reads that file **on your phone**; the file itself
+never leaves your phone. We receive only your saved places: each place's
+name, address, location, link and the list it's in, plus any note you wrote
+on it. Notes are saved only if you choose to keep them. To suggest a
+category and city for each place, we may send its name, address and list
+name to our AI provider (see section 3), never your notes.
+
+**Trending list.** For a few cities, we use AI with web search once a week
+to find events and newly opened places. These searches are about the city,
+not about you: only the city's name and the date are sent. When you save or
+hide a Trending item, we record that for your couple.
 
 **Technical logs.** Our servers keep short-lived logs (for example, errors)
 to keep the app running. These may include your account ID but are deleted
@@ -86,10 +103,9 @@ they may not use it for their own purposes:
 |---|---|---|
 | **Supabase** | Hosts our database | Everything described in section 1 (stored in the United States, Northern Virginia) |
 | **Google Cloud** | Runs our servers | Data passing through our app, and the technical logs above (United States) |
-| **Upstash** | Short-term cache that makes the app faster | City names with their coordinates, and IDs of web posts we've already checked. No account details |
-| **Mapbox** | Turns a city name into map coordinates | The city name you entered. Nothing that identifies you |
+| **Upstash** | Short-term counters and cache that keep the app fast and protect it from abuse | Rate-limit counters keyed by your IP address, sign-in email address or account ID (kept from 15 minutes to a day), a pending schedule change for up to an hour, and IDs of web posts we've already checked |
 | **Expo** (push notifications) | Delivers notifications to your phone, via Apple and Google | Your push token and the notification text (for example, the name of a suggested place) |
-| **Anthropic** (Claude AI) | Rates new date ideas we find on public blogs and feeds your couple follows, so we show you the relevant ones | The idea's title, a short excerpt of its description, and your couple's combined taste scores (numbers like "likes restaurants: 0.4"). Never your name, email, location or account ID. Anthropic doesn't use this data to train its models |
+| **Anthropic** (Claude AI) | (1) Rates new date ideas we find on public blogs and feeds your couple follows. (2) Suggests a category (and, for imports, a city) for a link you share or places you import. (3) Searches the web each week for events and new places in our Trending cities | (1) The idea's title, a short excerpt of its description, and your couple's combined taste scores (numbers like "likes restaurants: 0.4"). (2) The shared page's title, or each imported place's name, address and list name; never your notes. (3) Only a city name and the date. Never your name, email, location or account ID. Anthropic doesn't use this data to train its models |
 
 When you share a link, our server fetches that web page directly from the
 website that hosts it. That website sees a request from our server, not from
@@ -108,7 +124,9 @@ sooner on their own:
 
 - Ideas you swipe away in your Review Feed: deleted after 30 days.
 - Server logs: deleted within about 30 days.
-- Cached city coordinates: kept up to 90 days.
+- Rate-limit counters: deleted within a day.
+- Trending events and places (public information, not about you): deleted
+  about 30 to 60 days after they end or stop being found.
 
 When you delete your account, your data is deleted right away (see below).
 
@@ -123,7 +141,8 @@ within 30 days. See [How to delete your account](../delete-account/).
 
 **What gets deleted:** your account (email, name, password), home city,
 taste answers and history, suggestion schedules, reviews, calendar event
-records, push token, invites, and suggestions that were only for you. The
+records, push token, invites, and suggestions that were only for you. If
+you're not linked, your couple's saved or hidden Trending items go too. The
 app also clears everything it stored on your phone.
 
 **What your partner keeps:** if you're linked, your partner keeps their own
@@ -165,6 +184,11 @@ your linked partner can see your couple's data in the app.
 If we make an important change, we'll tell you in the app before it takes
 effect and update the date at the top.
 
-## 11. Contact
+## 11. Credits
+
+City data © [GeoNames](https://www.geonames.org/), used under the
+[Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/).
+
+## 12. Contact
 
 Questions or requests: **[standingdateapp@gmail.com](mailto:standingdateapp@gmail.com)**
