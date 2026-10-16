@@ -147,8 +147,12 @@ app also clears everything it stored on your phone.
 **What your partner keeps:** if you're linked, your partner keeps their own
 account, your shared Date Vault ideas (including ones you added, no longer
 labeled with your name), their saved or hidden Trending items, and
-suggestions that were made for them. Your link is removed. If you're not
-linked, your Date Vault is deleted too.
+suggestions that were made for them. Your link is removed. If your partner later
+starts over with someone new (by inviting them or accepting their invite),
+the app first asks them to confirm, and all of that shared history is
+deleted when they confirm starting fresh with a new partner. A new partner
+never sees it. Your partner's own preferences are kept. If you're not linked,
+your Date Vault is deleted too.
 
 **What stays on your phone:** calendar events the app created stay in your
 calendar. Delete them in your calendar app if you don't want them.
