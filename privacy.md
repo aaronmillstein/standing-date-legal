@@ -103,9 +103,9 @@ they may not use it for their own purposes:
 |---|---|---|
 | **Supabase** | Hosts our database | Everything described in section 1 (stored in the United States, Northern Virginia) |
 | **Google Cloud** | Runs our servers | Data passing through our app, and the technical logs above (United States) |
-| **Upstash** | Short-term counters and cache that keep the app fast and protect it from abuse | Rate-limit counters keyed by your IP address, sign-in email address or account ID (kept from 15 minutes to a day), a pending schedule change for up to an hour, and IDs of web posts we've already checked |
+| **Upstash** | Short-term counters and cache that keep the app fast and protect it from abuse | Rate-limit counters keyed by your IP address, sign-in email address or account ID (kept from 15 minutes to a day), and a pending schedule change for up to an hour |
 | **Expo** (push notifications) | Delivers notifications to your phone, via Apple and Google | Your push token and the notification text (for example, the name of a suggested place) |
-| **Anthropic** (Claude AI) | (1) Rates new date ideas we find on public blogs and feeds your couple follows. (2) Suggests a category (and, for imports, a city) for a link you share or places you import. (3) Searches the web each week for events and new places in our Trending cities | (1) The idea's title, a short excerpt of its description, and your couple's combined taste scores (numbers like "likes restaurants: 0.4"). (2) The shared page's title, or each imported place's name, address and list name; never your notes. (3) Only a city name and the date. Never your name, email, location or account ID. Anthropic doesn't use this data to train its models |
+| **Anthropic** (Claude AI) | (1) Suggests a category (and, for imports, a city) for a link you share or places you import. (2) Searches the web each week for events and new places in our Trending cities | (1) The shared page's title, or each imported place's name, address and list name; never your notes. (2) Only a city name and the date. Never your name, email, location or account ID. Anthropic doesn't use this data to train its models |
 
 When you share a link, our server fetches that web page directly from the
 website that hosts it. That website sees a request from our server, not from
@@ -122,7 +122,6 @@ you.
 We keep your data while your account is open. Some things are deleted
 sooner on their own:
 
-- Ideas you swipe away in your Review Feed: deleted after 30 days.
 - Server logs: deleted within about 30 days.
 - Rate-limit counters: deleted within a day.
 - Trending events and places (public information, not about you): deleted
@@ -147,7 +146,7 @@ app also clears everything it stored on your phone.
 
 **What your partner keeps:** if you're linked, your partner keeps their own
 account, your shared Date Vault ideas (including ones you added, no longer
-labeled with your name), the blogs and feeds you followed together, and
+labeled with your name), their saved or hidden Trending items, and
 suggestions that were made for them. Your link is removed. If you're not
 linked, your Date Vault is deleted too.
 
