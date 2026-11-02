@@ -55,6 +55,8 @@ website sees an ordinary request from your phone (like any web page would).
 accept them, when a date is planned, and the reviews and notes you leave
 afterward. Recurring suggestion schedules you set up are stored too.
 
+**What you ask for.** If you type a request or feedback when asking for suggestions (for example "something cozy, not sushi"), we use it to pick ideas from your Date Vault. We keep it with that request for up to 30 days, then delete it.
+
 **Calendar (only with your permission).** When you accept a date, the app
 adds an event to your phone's calendar. That happens on your phone; we keep
 only the event's ID and date so we can ask later how the date went. We don't
@@ -94,6 +96,8 @@ mark it private. Your password, home city coordinates and taste answers are
 not shown to your partner, though suggestions "for both of you" are based on
 both partners' tastes combined.
 
+A request you type for a surprise for your partner is never shown to them.
+
 ## 3. Services that help run the app
 
 We share data only with these service providers, only what each needs, and
@@ -103,6 +107,7 @@ they may not use it for their own purposes:
 |---|---|---|
 | **Supabase** | Hosts our database | Everything described in section 1 (stored in the United States, Northern Virginia) |
 | **Google Cloud** | Runs our servers | Data passing through our app, and the technical logs above (United States) |
+| **Google Cloud Vertex AI** (Gemini) | Picks the best few ideas from your own Date Vault when you type a request or feedback, and explains why | What you typed for that request, a short summary of your couple's tastes (for example "likes Italian"), and for each idea it considers: its name, type, price level, city and roughly how far away it is. Never your notes, the idea's description, your exact location, or your name or email. Google doesn't use this data to train its models. It may keep it briefly to run the service and to detect abuse |
 | **Google Maps Platform** (Places) | When you open an idea that's a real place, shows its photo, rating, price level, opening hours, website and a short description | To find the place: its name and address, its approximate location (the place's, not yours) and, after that, Google's ID for the place. Never your name, email, location or account ID. We keep only Google's place ID. The photo and details come from Google each time you open the idea and aren't stored. When a Google photo is shown, your phone loads it directly from Google, so Google sees your phone's internet address, as with any image on the web |
 | **Upstash** | Short-term counters and cache that keep the app fast and protect it from abuse | Rate-limit counters keyed by your IP address, sign-in email address or account ID (kept from 15 minutes to a day), and a pending schedule change for up to an hour |
 | **Expo** (push notifications) | Delivers notifications to your phone, via Apple and Google | Your push token and the notification text (for example, the name of a suggested place) |
@@ -125,6 +130,7 @@ sooner on their own:
 
 - Server logs: deleted within about 30 days.
 - Rate-limit counters: deleted within a day.
+- What you type when asking for suggestions: deleted within 30 days.
 - Trending events and places (public information, not about you): deleted
   about 30 to 60 days after they end or stop being found.
 
