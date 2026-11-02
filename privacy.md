@@ -5,7 +5,7 @@ permalink: /privacy/
 
 # Standing Date Privacy Policy
 
-**Effective date:** October 15, 2026
+**Effective date:** November 2, 2026
 
 Standing Date is a small app that helps couples save date ideas, get
 suggestions, and plan dates together. It's run by an individual developer
@@ -103,6 +103,7 @@ they may not use it for their own purposes:
 |---|---|---|
 | **Supabase** | Hosts our database | Everything described in section 1 (stored in the United States, Northern Virginia) |
 | **Google Cloud** | Runs our servers | Data passing through our app, and the technical logs above (United States) |
+| **Google Maps Platform** (Places) | When you open an idea that's a real place, shows its photo, rating, price level, opening hours, website and a short description | To find the place: its name and address, its approximate location (the place's, not yours) and, after that, Google's ID for the place. Never your name, email, location or account ID. We keep only Google's place ID. The photo and details come from Google each time you open the idea and aren't stored. When a Google photo is shown, your phone loads it directly from Google, so Google sees your phone's internet address, as with any image on the web |
 | **Upstash** | Short-term counters and cache that keep the app fast and protect it from abuse | Rate-limit counters keyed by your IP address, sign-in email address or account ID (kept from 15 minutes to a day), and a pending schedule change for up to an hour |
 | **Expo** (push notifications) | Delivers notifications to your phone, via Apple and Google | Your push token and the notification text (for example, the name of a suggested place) |
 | **Anthropic** (Claude AI) | (1) Suggests a category (and, for imports, a city) for a link you share or places you import. (2) Searches the web each week for events and new places in our Trending cities | (1) The shared page's title, or each imported place's name, address and list name; never your notes. (2) Only a city name and the date. Never your name, email, location or account ID. Anthropic doesn't use this data to train its models |
@@ -184,8 +185,8 @@ your linked partner can see your couple's data in the app.
 
 ## 10. Changes to this policy
 
-If we make an important change, we'll tell you in the app before it takes
-effect and update the date at the top.
+If we make an important change, we'll tell you in the app or by email before
+it takes effect, and update the date at the top.
 
 ## 11. Credits
 
