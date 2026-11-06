@@ -5,7 +5,7 @@ permalink: /privacy/
 
 # Standing Date Privacy Policy
 
-**Effective date:** November 2, 2026
+**Effective date:** November 6, 2026
 
 Standing Date is a small app that helps couples save date ideas, get
 suggestions, and plan dates together. It's run by an individual developer
@@ -80,6 +80,15 @@ to find events and newly opened places. These searches are about the city,
 not about you: only the city's name and the date are sent. When you save or
 hide a Trending item, we record that for your couple.
 
+**Feedback you send.** If you send feedback from the app, we collect what
+you write, the kind of feedback you pick (for example a problem or an idea),
+the app version, your phone's model and operating system, and the screen you
+sent it from. We use it to fix and improve the app. The developer reads it,
+and so does the AI assistant used to build the app, which sees a random
+tester code instead of your name or email. Please don't include anything
+you'd rather we didn't read. We delete feedback after 12 months, or sooner
+if you delete your account.
+
 **Technical logs.** Our servers keep short-lived logs (for example, errors)
 to keep the app running. These may include your account ID but are deleted
 automatically within about 30 days.
@@ -108,10 +117,10 @@ they may not use it for their own purposes:
 | **Supabase** | Hosts our database | Everything described in section 1 (stored in the United States, Northern Virginia) |
 | **Google Cloud** | Runs our servers | Data passing through our app, and the technical logs above (United States) |
 | **Google Cloud Vertex AI** (Gemini) | Picks the best few ideas from your own Date Vault when you type a request or feedback, and explains why | What you typed for that request, a short summary of your couple's tastes (for example "likes Italian"), and for each idea it considers: its name, type, price level, city and roughly how far away it is. Never your notes, the idea's description, your exact location, or your name or email. Google doesn't use this data to train its models. It may keep it briefly to run the service and to detect abuse |
-| **Google Maps Platform** (Places) | When you open an idea that's a real place, shows its photo, rating, price level, opening hours, website and a short description | To find the place: its name and address, its approximate location (the place's, not yours) and, after that, Google's ID for the place. Never your name, email, location or account ID. We keep only Google's place ID. The photo and details come from Google each time you open the idea and aren't stored. When a Google photo is shown, your phone loads it directly from Google, so Google sees your phone's internet address, as with any image on the web |
+| **Google Maps Platform** (Places) | When you open an idea or a Trending item that's a real place, shows its photo, rating, price level, opening hours, website and a short description | To find the place: its name and address, its approximate location (the place's, not yours) and, after that, Google's ID for the place. Never your name, email, location or account ID. We keep only Google's place ID. The photo and details come from Google each time you open the idea and aren't stored. When a Google photo is shown, your phone loads it directly from Google, so Google sees your phone's internet address, as with any image on the web |
 | **Upstash** | Short-term counters and cache that keep the app fast and protect it from abuse | Rate-limit counters keyed by your IP address, sign-in email address or account ID (kept from 15 minutes to a day), and a pending schedule change for up to an hour |
 | **Expo** (push notifications) | Delivers notifications to your phone, via Apple and Google | Your push token and the notification text (for example, the name of a suggested place) |
-| **Anthropic** (Claude AI) | (1) Suggests a category (and, for imports, a city) for a link you share or places you import. (2) Searches the web each week for events and new places in our Trending cities | (1) The shared page's title, or each imported place's name, address and list name; never your notes. (2) Only a city name and the date. Never your name, email, location or account ID. Anthropic doesn't use this data to train its models |
+| **Anthropic** (Claude AI) | (1) Suggests a category (and, for imports, a city) for a link you share or places you import. (2) Searches the web each week for events and new places in our Trending cities. (3) The AI assistant that helps us build the app reads the feedback you send, to help fix and improve it | (1) The shared page's title, or each imported place's name, address and list name; never your notes. (2) Only a city name and the date. Never your name, email, location or account ID. (3) What you wrote in your feedback, its kind, the app version, phone model, operating system and screen, with a random tester code instead of your name or email. Anthropic doesn't use this data to train its models |
 
 When you share a link, our server fetches that web page directly from the
 website that hosts it. That website sees a request from our server, not from
@@ -131,6 +140,7 @@ sooner on their own:
 - Server logs: deleted within about 30 days.
 - Rate-limit counters: deleted within a day.
 - What you type when asking for suggestions: deleted within 30 days.
+- Feedback you send: deleted after 12 months.
 - Trending events and places (public information, not about you): deleted
   about 30 to 60 days after they end or stop being found.
 
@@ -147,7 +157,8 @@ within 30 days. See [How to delete your account](../delete-account/).
 
 **What gets deleted:** your account (email, name, password), home city,
 taste answers and history, suggestion schedules, reviews, calendar event
-records, push token, invites, and suggestions that were only for you. If
+records, push token, invites, feedback you sent, and suggestions that were
+only for you. If
 you're not linked, your couple's saved or hidden Trending items go too. The
 app also clears everything it stored on your phone.
 
