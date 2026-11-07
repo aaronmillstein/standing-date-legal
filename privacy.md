@@ -5,7 +5,7 @@ permalink: /privacy/
 
 # Standing Date Privacy Policy
 
-**Effective date:** November 6, 2026
+**Effective date:** November 7, 2026
 
 Standing Date is a small app that helps couples save date ideas, get
 suggestions, and plan dates together. It's run by an individual developer
