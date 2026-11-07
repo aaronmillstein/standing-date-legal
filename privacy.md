@@ -115,7 +115,7 @@ they may not use it for their own purposes:
 | Provider | What it does for us | What it receives |
 |---|---|---|
 | **Supabase** | Hosts our database | Everything described in section 1 (stored in the United States, Northern Virginia) |
-| **Google Cloud** | Runs our servers | Data passing through our app, and the technical logs above (United States) |
+| **Google Cloud** | Runs our servers and stores our nightly database backups | Data passing through our app, the technical logs above, and backup copies of everything described in section 1 (all in the United States) |
 | **Google Cloud Vertex AI** (Gemini) | Picks the best few ideas from your own Date Vault when you type a request or feedback, and explains why | What you typed for that request, a short summary of your couple's tastes (for example "likes Italian"), and for each idea it considers: its name, type, price level, city and roughly how far away it is. Never your notes, the idea's description, your exact location, or your name or email. Google doesn't use this data to train its models. It may keep it briefly to run the service and to detect abuse |
 | **Google Maps Platform** (Places) | When you open an idea or a Trending item that's a real place, shows its photo, rating, price level, opening hours, website and a short description | To find the place: its name and address, its approximate location (the place's, not yours) and, after that, Google's ID for the place. Never your name, email, location or account ID. We keep only Google's place ID. The photo and details come from Google each time you open the idea and aren't stored. When a Google photo is shown, your phone loads it directly from Google, so Google sees your phone's internet address, as with any image on the web |
 | **Upstash** | Short-term counters and cache that keep the app fast and protect it from abuse | Rate-limit counters keyed by your IP address, sign-in email address or account ID (kept from 15 minutes to a day), and a pending schedule change for up to an hour |
@@ -141,10 +141,12 @@ sooner on their own:
 - Rate-limit counters: deleted within a day.
 - What you type when asking for suggestions: deleted within 30 days.
 - Feedback you send: deleted after 12 months.
+- Nightly database backups: each copy is deleted after 14 days.
 - Trending events and places (public information, not about you): deleted
   about 30 to 60 days after they end or stop being found.
 
-When you delete your account, your data is deleted right away (see below).
+When you delete your account, your data is deleted right away, and from
+our backups within 14 days (see below).
 
 ## 6. Deleting your account
 
@@ -175,9 +177,13 @@ your Date Vault is deleted too.
 **What stays on your phone:** calendar events the app created stay in your
 calendar. Delete them in your calendar app if you don't want them.
 
-Our database host may keep backup copies for disaster recovery for a short
-period; we don't keep any other backups, and those copies are deleted on
-the host's schedule.
+We keep a private backup copy of our database each night, stored in our
+Google Cloud account in the United States, so we can recover if something
+goes wrong. Each copy is deleted automatically after 14 days, so your
+deleted data is gone from every backup within 14 days. If we ever have to
+restore from a backup, we delete again any accounts that were deleted after
+that copy was made. Our database host may also keep its own backup copies
+for a short period, deleted on the host's schedule.
 
 ## 7. Your choices
 
